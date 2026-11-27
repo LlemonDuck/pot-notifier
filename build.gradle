@@ -1,5 +1,14 @@
 plugins {
 	id 'java'
+	id 'idea'
+	id 'checkstyle'
+}
+
+idea {
+	module {
+		downloadJavadoc = true
+		downloadSources = true
+	}
 }
 
 repositories {
@@ -14,7 +23,7 @@ repositories {
 }
 
 def runeLiteVersion = 'latest.release'
-def pluginMainClass = 'com.example.ExamplePluginTest'
+def pluginMainClass = 'com.duckblade.osrs.pot.PotNotifierPluginTest'
 
 dependencies {
 	compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
@@ -27,7 +36,7 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
-group = 'com.example'
+group = 'com.duckblade.osrs'
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = 'UTF-8'
